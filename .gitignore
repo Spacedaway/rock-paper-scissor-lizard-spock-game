@@ -3,6 +3,11 @@
 # dependencies
 node_modules/
 
+# Ignore IDE-specific folders
+.vscode/
+.idea/
+rock-paper-scissors-master/
+
 # Expo
 .expo/
 dist/
