@@ -1,9 +1,9 @@
-import { Image, View } from 'react-native';
+import { Image, View, StyleSheet } from 'react-native';
 import React from 'react';
 
 const BackgroundImage = ({ size, src }) => {
 	return (
-		<View style={{ justifyContent: 'center' }}>
+		<View style={styles.container}>
 			<Image
 				style={{
 					width: size,
@@ -16,3 +16,12 @@ const BackgroundImage = ({ size, src }) => {
 };
 
 export default BackgroundImage;
+
+const styles = StyleSheet.create({
+	container: {
+		flex: 1,
+		justifyContent: 'center',
+		alignItems: 'center',
+		marginTop: -250,
+	},
+});
