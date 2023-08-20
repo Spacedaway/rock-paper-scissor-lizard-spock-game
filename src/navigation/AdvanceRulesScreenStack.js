@@ -9,7 +9,7 @@ const AdvanceRulesScreenStack = () => {
 	return (
 		<Stack.Navigator
 			screenOptions={{ headerShown: false }}
-			initialRouteName='AdvancedRules'
+			initialRouteName='AdvanceGamePlay'
 		>
 			<Stack.Screen name='AdvancedRules' component={Rules} />
 			<Stack.Screen

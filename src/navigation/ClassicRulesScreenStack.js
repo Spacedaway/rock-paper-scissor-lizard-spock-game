@@ -7,12 +7,15 @@ const Stack = createNativeStackNavigator();
 
 const ClassicRulesScreenStack = () => {
 	return (
-		<Stack.Navigator screenOptions={{ headerShown: false }}>
+		<Stack.Navigator
+			screenOptions={{ headerShown: false }}
+			initialRouteName='ClassicGamePlay'
+		>
+			<Stack.Screen name='ClassicalRules' component={Rules} />
 			<Stack.Screen
-				name='ClassicGame'
+				name='ClassicGamePlay'
 				component={ClassicGamePlayAndResultsStack}
 			/>
-			<Stack.Screen name='ClassicalRules' component={Rules} />
 		</Stack.Navigator>
 	);
 };
