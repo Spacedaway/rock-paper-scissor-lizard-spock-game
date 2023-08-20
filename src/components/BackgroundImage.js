@@ -1,16 +1,17 @@
-import { Image } from 'react-native';
+import { Image, View } from 'react-native';
 import React from 'react';
-import backgroungImage from '../../assets/images/bg-pentagon.png';
 
 const BackgroundImage = ({ size, src }) => {
 	return (
-		<Image
-			style={{
-				width: size,
-				height: size,
-			}}
-			source={src}
-		/>
+		<View style={{ justifyContent: 'center' }}>
+			<Image
+				style={{
+					width: size,
+					height: size,
+				}}
+				source={src}
+			/>
+		</View>
 	);
 };
 
