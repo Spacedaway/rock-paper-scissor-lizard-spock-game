@@ -4,9 +4,10 @@ import React, { useState } from 'react';
 import ScoreBoard from '../components/ScoreBoard';
 import Selection from '../components/Selection';
 import ControlPanel from '../components/ControlPanel';
+import useScreenWidth from '../hooks/useScreenWidth';
 
 const RockPaperScissorsLizardSpock = () => {
-	const screenWidth = Math.floor(Dimensions.get('window').width);
+	const [screenWidth] = useScreenWidth();
 
 	return (
 		<SafeAreaView style={styles.container}>
