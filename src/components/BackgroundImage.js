@@ -1,5 +1,6 @@
 import { Image } from 'react-native';
 import React from 'react';
+import backgroungImage from '../../assets/images/bg-pentagon.png';
 
 const BackgroundImage = ({ size, src }) => {
 	return (
@@ -8,7 +9,7 @@ const BackgroundImage = ({ size, src }) => {
 				width: size,
 				height: size,
 			}}
-			source={require(`${src}`)}
+			source={src}
 		/>
 	);
 };

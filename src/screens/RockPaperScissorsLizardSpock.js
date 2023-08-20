@@ -2,6 +2,7 @@ import { StyleSheet, Text, Dimensions } from 'react-native';
 import { SafeAreaView } from 'react-native-safe-area-context';
 import React, { useState } from 'react';
 import BackgroundImage from '../components/BackgroundImage';
+import MyAppText from '../components/MyAppText';
 
 const RockPaperScissorsLizardSpock = () => {
 	const screenWidth = Math.floor(Dimensions.get('window').width * 0.6);
@@ -10,9 +11,9 @@ const RockPaperScissorsLizardSpock = () => {
 		<SafeAreaView style={styles.container}>
 			<BackgroundImage
 				size={screenWidth}
-				src='../../assets/images/bg-pentagon.png'
+				src={require('../../assets/images/bg-pentagon.png')}
 			/>
-			<Text>RockPaperScissorsLizardSpock</Text>
+			<MyAppText>RockPaperScissorsLizardSpock</MyAppText>
 		</SafeAreaView>
 	);
 };
