@@ -10,11 +10,7 @@ const useScreenWidth = () => {
 		const updateScreenWidth = () => {
 			setScreenWidth(Dimensions.get('window').width);
 		};
-
-		Dimensions.addEventListener('change', updateScreenWidth);
-		return () => {
-			Dimensions.removeEventListener('change', updateScreenWidth);
-		};
+		updateScreenWidth();
 	}, []);
 
 	return [screenWidth];
