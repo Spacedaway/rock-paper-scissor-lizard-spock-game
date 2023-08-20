@@ -2,7 +2,6 @@ import { StyleSheet } from 'react-native';
 import { useRoute } from '@react-navigation/native';
 import React from 'react';
 import RulesView from '../components/RulesView';
-import useScreenWidth from '../hooks/useScreenWidth';
 
 const Rules = () => {
 	const route = useRoute();
