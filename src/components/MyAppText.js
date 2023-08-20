@@ -6,6 +6,7 @@ const MyAppText = ({
 	size = 20,
 	align = 'center',
 	textColour = 'white',
+	margin = null,
 }) => {
 	return (
 		<View>
@@ -15,6 +16,7 @@ const MyAppText = ({
 					color: textColour,
 					textAlign: align,
 					fontFamily: 'BarlowSemiCondensed-Regular',
+					marginTop: margin,
 				}}
 			>
 				{children}
