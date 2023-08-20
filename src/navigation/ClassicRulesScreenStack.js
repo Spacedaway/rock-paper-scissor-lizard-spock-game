@@ -12,7 +12,7 @@ const ClassicRulesScreenStack = () => {
 				name='ClassicGame'
 				component={ClassicGamePlayAndResultsStack}
 			/>
-			<Stack.Screen name='ClassicRules' component={Rules} />
+			<Stack.Screen name='ClassicalRules' component={Rules} />
 		</Stack.Navigator>
 	);
 };

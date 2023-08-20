@@ -4,6 +4,7 @@ import { NavigationContainer } from '@react-navigation/native';
 import { createNativeStackNavigator } from '@react-navigation/native-stack';
 import MainStackNavigator from './src/navigation/MainStackNavigator';
 import useFonts from './src/hooks/useFonts';
+import { navigationRef } from './src/services/navigationRef';
 
 const Stack = createNativeStackNavigator();
 
@@ -34,7 +35,7 @@ const App = () => {
 	}
 
 	return (
-		<NavigationContainer onLayout={onLayoutRootView}>
+		<NavigationContainer onLayout={onLayoutRootView} ref={navigationRef}>
 			<MainStackNavigator />
 		</NavigationContainer>
 	);

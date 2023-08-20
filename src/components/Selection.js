@@ -27,6 +27,8 @@ export default Selection;
 
 const styles = StyleSheet.create({
 	container: {
-		position: 'relative',
+		flex: 1,
+		// borderColor: 'white',
+		// borderWidth: 2,
 	},
 });

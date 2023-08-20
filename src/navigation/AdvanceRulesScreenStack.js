@@ -7,12 +7,15 @@ const Stack = createNativeStackNavigator();
 
 const AdvanceRulesScreenStack = () => {
 	return (
-		<Stack.Navigator screenOptions={{ headerShown: false }}>
+		<Stack.Navigator
+			screenOptions={{ headerShown: false }}
+			initialRouteName='AdvancedRules'
+		>
+			<Stack.Screen name='AdvancedRules' component={Rules} />
 			<Stack.Screen
 				name='AdvanceGamePlay'
 				component={AdvanceGamePlayAndResultsStack}
 			/>
-			<Stack.Screen name='AdvanceRules' component={Rules} />
 		</Stack.Navigator>
 	);
 };

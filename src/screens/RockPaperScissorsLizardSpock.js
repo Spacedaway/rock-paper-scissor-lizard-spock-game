@@ -3,6 +3,7 @@ import { SafeAreaView } from 'react-native-safe-area-context';
 import React, { useState } from 'react';
 import ScoreBoard from '../components/ScoreBoard';
 import Selection from '../components/Selection';
+import ControlPanel from '../components/ControlPanel';
 
 const RockPaperScissorsLizardSpock = () => {
 	const screenWidth = Math.floor(Dimensions.get('window').width);
@@ -14,6 +15,7 @@ const RockPaperScissorsLizardSpock = () => {
 				size={screenWidth * 0.2}
 			/>
 			<Selection size={screenWidth} />
+			<ControlPanel />
 		</SafeAreaView>
 	);
 };
