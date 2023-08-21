@@ -7,6 +7,7 @@ const Option = ({
 	icon,
 	optionStyle,
 	option,
+	pickStyle = null,
 	onPressNavigate = null,
 }) => {
 	const route = useRoute();
@@ -30,6 +31,7 @@ const Option = ({
 				},
 				styles.container,
 				optionStyle,
+				pickStyle,
 			]}
 			onPress={canNavigate}
 		>

@@ -2,7 +2,7 @@ import { StyleSheet, View } from 'react-native';
 import React from 'react';
 import BackgroundImage from './BackgroundImage';
 import Option from './Option';
-import optionStyles from '../../assets/styles/styles';
+import { optionStyles } from '../../assets/styles/styles';
 import { useNavigation } from '@react-navigation/native';
 
 const Selection = ({ size }) => {

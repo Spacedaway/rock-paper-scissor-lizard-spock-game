@@ -1,4 +1,4 @@
-const optionStyles = {
+export const optionStyles = {
 	scissors: {
 		top: 75,
 		left: 60,
@@ -36,4 +36,17 @@ const optionStyles = {
 	},
 };
 
-export default optionStyles;
+export const pickStyles = {
+	player: {
+		top: null,
+		left: null,
+		right: null,
+		position: null,
+	},
+	house: {
+		top: null,
+		right: null,
+		left: null,
+		position: null,
+	},
+};
