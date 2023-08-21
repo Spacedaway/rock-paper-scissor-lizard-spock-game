@@ -5,7 +5,7 @@ import Option from './Option';
 import { optionStyles, basicOptions } from '../../assets/styles/styles';
 import { useNavigation } from '@react-navigation/native';
 
-const Selection = ({ size, gameMode = null }) => {
+const Selection = ({ size, gameMode }) => {
 	const navigation = useNavigation();
 	const onPressNavigate = (params) => {
 		navigation.navigate('GamePlay', params);
