@@ -1,11 +1,24 @@
 import { Image, StyleSheet, TouchableOpacity } from 'react-native';
 import React from 'react';
-import { useNavigation } from '@react-navigation/native';
 import { useRoute } from '@react-navigation/native';
 
-const Option = ({ size, icon, optionStyle, option }) => {
-	const navigation = useNavigation();
+const Option = ({
+	size,
+	icon,
+	optionStyle,
+	option,
+	onPressNavigate = null,
+}) => {
 	const route = useRoute();
+
+	const canNavigate = () => {
+		if (onPressNavigate) {
+			onPressNavigate({
+				option,
+				routeName: route.name,
+			});
+		}
+	};
 
 	return (
 		<TouchableOpacity
@@ -18,12 +31,7 @@ const Option = ({ size, icon, optionStyle, option }) => {
 				styles.container,
 				optionStyle,
 			]}
-			onPress={() =>
-				navigation.navigate('GamePlay', {
-					option,
-					routeName: route.name,
-				})
-			}
+			onPress={canNavigate}
 		>
 			<Image source={icon} resizeMode='cover' />
 		</TouchableOpacity>

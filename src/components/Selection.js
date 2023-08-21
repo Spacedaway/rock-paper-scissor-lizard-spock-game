@@ -3,8 +3,14 @@ import React from 'react';
 import BackgroundImage from './BackgroundImage';
 import Option from './Option';
 import optionStyles from '../../assets/styles/styles';
+import { useNavigation } from '@react-navigation/native';
 
 const Selection = ({ size }) => {
+	const navigation = useNavigation();
+	const onPressNavigate = (params) => {
+		navigation.navigate('GamePlay', params);
+	};
+
 	return (
 		<View style={styles.container}>
 			<BackgroundImage
@@ -18,6 +24,7 @@ const Selection = ({ size }) => {
 					icon={optionStyles[key].iconPath}
 					optionStyle={optionStyles[key]}
 					option={key}
+					onPressNavigate={onPressNavigate}
 				/>
 			))}
 		</View>
@@ -29,7 +36,5 @@ export default Selection;
 const styles = StyleSheet.create({
 	container: {
 		flex: 1,
-		// borderColor: 'white',
-		// borderWidth: 2,
 	},
 });

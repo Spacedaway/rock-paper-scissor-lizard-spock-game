@@ -5,6 +5,7 @@ import { useNavigation } from '@react-navigation/native';
 import { useRoute } from '@react-navigation/native';
 import ScoreBoard from '../components/ScoreBoard';
 import useScreenWidth from '../hooks/useScreenWidth';
+import UserHouseOptions from '../components/UserHouseOptions';
 
 const GamePlay = () => {
 	const [screenWidth] = useScreenWidth();
@@ -21,6 +22,7 @@ const GamePlay = () => {
 	return (
 		<SafeAreaView style={styles.container}>
 			<ScoreBoard src={source} size={screenWidth * 0.2} />
+			<UserHouseOptions option={option} />
 		</SafeAreaView>
 	);
 };
