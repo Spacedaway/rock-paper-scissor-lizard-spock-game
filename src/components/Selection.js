@@ -30,7 +30,9 @@ const Selection = ({ size, gameMode }) => {
 						size={size * 0.3}
 						icon={optionStyles[key].iconPath}
 						optionStyle={optionStyles[key]}
-						basicStyle={gameMode ? basicOptions[key] : null}
+						basicStyle={
+							gameMode === 'Basic' ? basicOptions[key] : null
+						}
 						option={key}
 						onPressNavigate={onPressNavigate}
 					/>
