@@ -30,12 +30,12 @@ const GamePlay = () => {
 			<View style={styles.picks}>
 				<UserHouseOptions
 					option={option}
-					pick={pickStyles['player']}
+					reset={pickStyles['reset']}
 					title='YOU PICKED'
 				/>
 				<UserHouseOptions
 					option={option}
-					pick={pickStyles['house']}
+					reset={pickStyles['reset']}
 					title='THE HOUSE PICKED'
 				/>
 			</View>

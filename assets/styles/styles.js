@@ -37,16 +37,25 @@ export const optionStyles = {
 };
 
 export const pickStyles = {
-	player: {
+	reset: {
 		top: null,
 		left: null,
 		right: null,
 		position: null,
 	},
-	house: {
-		top: null,
-		right: null,
-		left: null,
-		position: null,
+};
+
+export const basicOptions = {
+	scissors: {
+		top: 75,
+		left: 175,
+	},
+	paper: {
+		top: 75,
+		right: 175,
+	},
+	rock: {
+		top: 285,
+		right: 60,
 	},
 };

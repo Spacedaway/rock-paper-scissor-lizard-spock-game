@@ -5,7 +5,7 @@ import useScreenWidth from '../hooks/useScreenWidth';
 import { optionStyles } from '../../assets/styles/styles';
 import MyAppText from './MyAppText';
 
-const UserHouseOptions = ({ option, pick, title }) => {
+const UserHouseOptions = ({ option, reset, title }) => {
 	const [screenWidth] = useScreenWidth();
 
 	return (
@@ -14,7 +14,7 @@ const UserHouseOptions = ({ option, pick, title }) => {
 				size={screenWidth * 0.3}
 				icon={optionStyles[option].iconPath}
 				optionStyle={optionStyles[option]}
-				pickStyle={pick}
+				pickStyle={reset}
 			/>
 			<MyAppText>{title}</MyAppText>
 		</View>

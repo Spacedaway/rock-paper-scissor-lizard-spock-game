@@ -7,6 +7,7 @@ const Option = ({
 	icon,
 	optionStyle,
 	option,
+	basicStyle,
 	pickStyle = null,
 	onPressNavigate = null,
 }) => {
@@ -31,6 +32,7 @@ const Option = ({
 				},
 				styles.container,
 				optionStyle,
+				basicStyle,
 				pickStyle,
 			]}
 			onPress={canNavigate}
