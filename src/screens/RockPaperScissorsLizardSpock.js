@@ -14,6 +14,7 @@ const RockPaperScissorsLizardSpock = () => {
 			<ScoreBoard
 				src={require('../../assets/images/logo-bonus.png')}
 				size={screenWidth * 0.2}
+				gameMode='Advance'
 			/>
 			<Selection size={screenWidth} gameMode='Advance' />
 			<ControlPanel modeTitle='BASIC MODE' />

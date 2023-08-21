@@ -47,7 +47,7 @@ export const { Provider, Context } = createDataContext(
 	scoresReducer,
 	{ win, loss, draw },
 	{
-		Basic: { win: 0, loss: 0, draw: 0 },
-		Advance: { win: 0, loss: 0, draw: 0 },
+		Basic: { win: 0, loss: 1, draw: 0 },
+		Advance: { win: 0, loss: 2, draw: 0 },
 	}
 );

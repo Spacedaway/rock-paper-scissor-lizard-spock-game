@@ -14,6 +14,7 @@ const RockPaperScissors = () => {
 			<ScoreBoard
 				src={require('../../assets/images/logo.png')}
 				size={screenWidth * 0.2}
+				gameMode='Basic'
 			/>
 			<Selection size={screenWidth} gameMode='Basic' />
 			<ControlPanel modeTitle='ADVANCE MODE' />

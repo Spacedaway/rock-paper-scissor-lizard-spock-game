@@ -5,6 +5,7 @@ import { createNativeStackNavigator } from '@react-navigation/native-stack';
 import MainStackNavigator from './src/navigation/MainStackNavigator';
 import useFonts from './src/hooks/useFonts';
 import { navigationRef } from './src/services/navigationRef';
+import { Provider as ScoresProvider } from './src/context/ScoresContext';
 
 const Stack = createNativeStackNavigator();
 
@@ -35,9 +36,14 @@ const App = () => {
 	}
 
 	return (
-		<NavigationContainer onLayout={onLayoutRootView} ref={navigationRef}>
-			<MainStackNavigator />
-		</NavigationContainer>
+		<ScoresProvider>
+			<NavigationContainer
+				onLayout={onLayoutRootView}
+				ref={navigationRef}
+			>
+				<MainStackNavigator />
+			</NavigationContainer>
+		</ScoresProvider>
 	);
 };
 
