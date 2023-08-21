@@ -5,7 +5,7 @@ const useCustomNavigation = (customeRouteName) => {
 	const route = useRoute();
 	const routeName = customeRouteName || route.name;
 
-	const handleNavigation = () => {
+	const handleRulesNavigation = () => {
 		if (routeName === 'Advance') {
 			navigation.navigate('AdvancedRules');
 		} else {
@@ -13,7 +13,15 @@ const useCustomNavigation = (customeRouteName) => {
 		}
 	};
 
-	return [handleNavigation];
+	const handleGameModeNavigation = () => {
+		if (routeName === 'Advance') {
+			navigation.navigate('ClassicGame');
+		} else {
+			navigation.navigate('AdvanceGame');
+		}
+	};
+
+	return [handleRulesNavigation, handleGameModeNavigation];
 };
 
 export default useCustomNavigation;
