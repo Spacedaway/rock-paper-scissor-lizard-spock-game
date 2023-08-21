@@ -6,7 +6,7 @@ import useScreenWidth from '../hooks/useScreenWidth';
 import { useNavigation } from '@react-navigation/native';
 import { useRoute } from '@react-navigation/native';
 
-const RulesView = ({ src, routeName }) => {
+const RulesView = ({ src }) => {
 	const navigation = useNavigation();
 	const route = useRoute();
 	const [screenWidth] = useScreenWidth();

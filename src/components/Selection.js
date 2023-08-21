@@ -17,6 +17,7 @@ const Selection = ({ size }) => {
 					size={size * 0.3}
 					icon={optionStyles[key].iconPath}
 					optionStyle={optionStyles[key]}
+					option={key}
 				/>
 			))}
 		</View>

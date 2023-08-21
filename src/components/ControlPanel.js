@@ -6,8 +6,7 @@ import { useNavigation } from '@react-navigation/native';
 const ControlPanel = () => {
 	const navigation = useNavigation();
 	const handleNavigation = () => {
-		// Perform navigation logic here
-		navigation.navigate('AdvancedRules'); // Example navigation
+		navigation.navigate('AdvancedRules');
 	};
 
 	return (
