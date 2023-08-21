@@ -9,6 +9,14 @@ const scoresReducer = (state, action) => {
 	}
 };
 
+const win = (dispatch) => {
+	return (basicMode) => {
+		basicMode
+			? dispatch({ type: 'basic_win' })
+			: dispatch({ type: 'basic_win' });
+	};
+};
+
 export const { Provider, Context } = createDataContext({
 	scoresReducer,
 });

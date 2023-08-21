@@ -15,7 +15,7 @@ const RockPaperScissors = () => {
 				src={require('../../assets/images/logo.png')}
 				size={screenWidth * 0.2}
 			/>
-			<Selection size={screenWidth} optionsNumber={3} />
+			<Selection size={screenWidth} gameMode='Basic' />
 			<ControlPanel modeTitle='ADVANCE MODE' />
 		</SafeAreaView>
 	);

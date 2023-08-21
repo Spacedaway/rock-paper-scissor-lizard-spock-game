@@ -5,25 +5,23 @@ import Option from './Option';
 import { optionStyles, basicOptions } from '../../assets/styles/styles';
 import { useNavigation } from '@react-navigation/native';
 
-const Selection = ({ size, optionsNumber = null }) => {
+const Selection = ({ size, gameMode = null }) => {
 	const navigation = useNavigation();
 	const onPressNavigate = (params) => {
 		navigation.navigate('GamePlay', params);
 	};
-	const sliceValue = optionsNumber
-		? optionsNumber
-		: Object.keys(optionStyles).length;
+
+	if (gameMode === 'Basic') {
+		sliceValue = 3;
+		source = require('../../assets/images/bg-triangle.png');
+	} else {
+		sliceValue = Object.keys(optionStyles).length;
+		source = require('../../assets/images/bg-pentagon.png');
+	}
 
 	return (
 		<View style={styles.container}>
-			<BackgroundImage
-				size={size * 0.6}
-				src={
-					optionsNumber
-						? require('../../assets/images/bg-triangle.png')
-						: require('../../assets/images/bg-pentagon.png')
-				}
-			/>
+			<BackgroundImage size={size * 0.6} src={source} />
 			{Object.keys(optionStyles)
 				.slice(0, sliceValue)
 				.map((key) => (
@@ -32,7 +30,7 @@ const Selection = ({ size, optionsNumber = null }) => {
 						size={size * 0.3}
 						icon={optionStyles[key].iconPath}
 						optionStyle={optionStyles[key]}
-						basicStyle={optionsNumber ? basicOptions[key] : null}
+						basicStyle={gameMode ? basicOptions[key] : null}
 						option={key}
 						onPressNavigate={onPressNavigate}
 					/>
