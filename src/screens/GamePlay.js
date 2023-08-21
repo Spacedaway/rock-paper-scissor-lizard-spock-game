@@ -5,12 +5,16 @@ import { useRoute } from '@react-navigation/native';
 import ScoreBoard from '../components/ScoreBoard';
 import useScreenWidth from '../hooks/useScreenWidth';
 import UserHouseOptions from '../components/UserHouseOptions';
+import useCustomNavigation from '../hooks/useCustomNavigation';
 import { pickStyles } from '../../assets/styles/styles';
+import Result from '../components/Result';
+import Button from '../components/Button';
 
 const GamePlay = () => {
 	const [screenWidth] = useScreenWidth();
 	const route = useRoute();
 	const { option, routeName } = route.params;
+	const [handleNavigation] = useCustomNavigation(routeName);
 
 	if (routeName === 'Advance') {
 		source = require('../../assets/images/logo-bonus.png');
@@ -33,6 +37,15 @@ const GamePlay = () => {
 					title='THE HOUSE PICKED'
 				/>
 			</View>
+			<Result />
+			<View style={styles.rules}>
+				<Button
+					title='RULES'
+					brColour='white'
+					txtsz={20}
+					onPressNavigate={handleNavigation}
+				/>
+			</View>
 		</SafeAreaView>
 	);
 };
@@ -49,5 +62,8 @@ const styles = StyleSheet.create({
 		flexDirection: 'row',
 		gap: 100,
 		marginTop: 100,
+	},
+	rules: {
+		marginTop: 80,
 	},
 });

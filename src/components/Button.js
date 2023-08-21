@@ -2,9 +2,11 @@ import { StyleSheet, View, TouchableOpacity } from 'react-native';
 import React from 'react';
 import MyAppText from './MyAppText';
 
-const Buttons = ({
+const Button = ({
 	brColour = 'hsl(217, 16%, 45%)',
+	txtclr = 'white',
 	bgColour = null,
+	txtsz = null,
 	title,
 	onPressNavigate,
 }) => {
@@ -16,13 +18,15 @@ const Buttons = ({
 			]}
 		>
 			<TouchableOpacity onPress={onPressNavigate}>
-				<MyAppText>{title}</MyAppText>
+				<MyAppText size={txtsz} textColour={txtclr}>
+					{title}
+				</MyAppText>
 			</TouchableOpacity>
 		</View>
 	);
 };
 
-export default Buttons;
+export default Button;
 
 const styles = StyleSheet.create({
 	container: {

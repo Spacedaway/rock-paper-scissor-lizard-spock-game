@@ -1,13 +1,10 @@
 import { StyleSheet, View } from 'react-native';
 import React from 'react';
 import Button from './Button';
-import { useNavigation } from '@react-navigation/native';
+import useCustomNavigation from '../hooks/useCustomNavigation';
 
 const ControlPanel = () => {
-	const navigation = useNavigation();
-	const handleNavigation = () => {
-		navigation.navigate('AdvancedRules');
-	};
+	const [handleNavigation] = useCustomNavigation();
 
 	return (
 		<View style={{ gap: 10, marginBottom: 20 }}>
