@@ -15,7 +15,7 @@ const RockPaperScissors = () => {
 				src={require('../../assets/images/logo.png')}
 				size={screenWidth * 0.2}
 			/>
-			<Selection size={screenWidth} />
+			<Selection size={screenWidth} optionsNumber={3} />
 			<ControlPanel modeTitle='ADVANCE MODE' />
 		</SafeAreaView>
 	);
@@ -27,7 +27,6 @@ const styles = StyleSheet.create({
 	container: {
 		flex: 1,
 		backgroundColor: 'hsl(214, 47%, 23%)',
-		// backgroundColor: 'white',
 		alignItems: 'center',
 	},
 });
