@@ -1,27 +1,15 @@
 import { useNavigation, useRoute } from '@react-navigation/native';
 
-const useCustomNavigation = (customRouteName) => {
+const useCustomNavigation = (customeRouteName) => {
 	const navigation = useNavigation();
 	const route = useRoute();
-	const routeName = customRouteName || route.name;
+	const routeName = customeRouteName || route.name;
 
 	const handleNavigation = () => {
-		if (customRouteName) {
-			if (routeName === 'Advance') {
-				navigation.navigate('Advance');
-			} else if (routeName === 'Classic') {
-				navigation.navigate('Classic');
-			} else {
-				navigation.goBack();
-			}
+		if (routeName === 'Advance') {
+			navigation.navigate('AdvancedRules');
 		} else {
-			if (routeName === 'Advance') {
-				navigation.navigate('AdvancedRules');
-			} else if (routeName === 'Classic') {
-				navigation.navigate('ClassicalRules');
-			} else {
-				navigation.goBack();
-			}
+			navigation.navigate('ClassicalRules');
 		}
 	};
 

@@ -1,6 +1,7 @@
-import { StyleSheet, Text, View } from 'react-native';
+import { StyleSheet, View } from 'react-native';
 import React from 'react';
 import { SafeAreaView } from 'react-native-safe-area-context';
+import { useNavigation } from '@react-navigation/native';
 import { useRoute } from '@react-navigation/native';
 import ScoreBoard from '../components/ScoreBoard';
 import useScreenWidth from '../hooks/useScreenWidth';
@@ -12,6 +13,7 @@ import Button from '../components/Button';
 
 const GamePlay = () => {
 	const [screenWidth] = useScreenWidth();
+	const navigation = useNavigation();
 	const route = useRoute();
 	const { option, routeName } = route.params;
 	const [handleNavigation] = useCustomNavigation(routeName);
@@ -37,7 +39,7 @@ const GamePlay = () => {
 					title='THE HOUSE PICKED'
 				/>
 			</View>
-			<Result />
+			<Result callback={() => navigation.goBack()} />
 			<View style={styles.rules}>
 				<Button
 					title='RULES'

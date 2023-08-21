@@ -2,8 +2,9 @@ import { StyleSheet, View } from 'react-native';
 import React from 'react';
 import MyAppText from './MyAppText';
 import Button from './Button';
+import useCustomNavigation from '../hooks/useCustomNavigation';
 
-const Result = ({ outcome }) => {
+const Result = ({ outcome, callback }) => {
 	return (
 		<View style={styles.container}>
 			<MyAppText size={50}>YOU WIN</MyAppText>
@@ -13,6 +14,7 @@ const Result = ({ outcome }) => {
 				bgColour='white'
 				txtclr='hsl(229, 25%, 31%)'
 				txtsz={25}
+				onPressNavigate={callback}
 			/>
 		</View>
 	);
