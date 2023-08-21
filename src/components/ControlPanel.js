@@ -2,21 +2,23 @@ import { StyleSheet, View } from 'react-native';
 import React from 'react';
 import Button from './Button';
 import useCustomNavigation from '../hooks/useCustomNavigation';
+import { useRoute } from '@react-navigation/native';
 
-const ControlPanel = () => {
-	const [handleNavigation] = useCustomNavigation();
+const ControlPanel = ({ modeTitle }) => {
+	const [handleRulesNavigation, handleGameModeNavigation] =
+		useCustomNavigation();
 
 	return (
 		<View style={{ gap: 10, marginBottom: 20 }}>
 			<View style={{ flexDirection: 'row', gap: 10 }}>
-				<Button title='RULES' onPressNavigate={handleNavigation} />
-				<Button title='RESET' onPressNavigate={handleNavigation} />
+				<Button title='RULES' onPressNavigate={handleRulesNavigation} />
+				<Button title='RESET' onPressNavigate={handleRulesNavigation} />
 			</View>
 			<Button
-				title='BASIC MODE'
+				title={modeTitle}
 				bgColour='hsl(217, 16%, 45%)'
 				brColour='white'
-				onPressNavigate={handleNavigation}
+				onPressNavigate={handleGameModeNavigation}
 			/>
 		</View>
 	);

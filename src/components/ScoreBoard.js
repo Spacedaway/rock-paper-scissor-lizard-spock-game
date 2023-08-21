@@ -8,6 +8,7 @@ const ScoreBoard = ({ src, size }) => {
 			<View style={styles.container}>
 				<Image
 					source={src}
+					resizeMode='contain'
 					style={{
 						width: size,
 						height: size,

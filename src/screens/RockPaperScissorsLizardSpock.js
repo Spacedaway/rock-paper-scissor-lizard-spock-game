@@ -16,7 +16,7 @@ const RockPaperScissorsLizardSpock = () => {
 				size={screenWidth * 0.2}
 			/>
 			<Selection size={screenWidth} />
-			<ControlPanel />
+			<ControlPanel modeTitle='BASIC MODE' />
 		</SafeAreaView>
 	);
 };

@@ -16,7 +16,7 @@ const GamePlay = () => {
 	const navigation = useNavigation();
 	const route = useRoute();
 	const { option, routeName } = route.params;
-	const [handleNavigation] = useCustomNavigation(routeName);
+	const [handleRulesNavigation] = useCustomNavigation(routeName);
 
 	if (routeName === 'Advance') {
 		source = require('../../assets/images/logo-bonus.png');
@@ -45,7 +45,7 @@ const GamePlay = () => {
 					title='RULES'
 					brColour='white'
 					txtsz={20}
-					onPressNavigate={handleNavigation}
+					onPressNavigate={handleRulesNavigation}
 				/>
 			</View>
 		</SafeAreaView>
