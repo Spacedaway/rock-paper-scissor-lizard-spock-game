@@ -4,10 +4,10 @@ import MyAppText from './MyAppText';
 import Button from './Button';
 import useCustomNavigation from '../hooks/useCustomNavigation';
 
-const Result = ({ outcome, callback }) => {
+const Result = ({ outcome, callback, visible }) => {
 	return (
-		<View style={styles.container}>
-			<MyAppText size={50}>YOU WIN</MyAppText>
+		<View style={[styles.container, { display: visible }]}>
+			<MyAppText size={50}>{outcome}</MyAppText>
 			<Button
 				title='PLAY AGAIN'
 				brColour='white'

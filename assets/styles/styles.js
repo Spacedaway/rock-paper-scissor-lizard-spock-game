@@ -34,6 +34,11 @@ export const optionStyles = {
 		borderColor: 'hsl(189, 58%, 57%)',
 		iconPath: require('../../assets/images/icon-spock.png'),
 	},
+	default: {
+		borderColor: 'hsl(227, 48%, 16%)',
+		backgroundColor: 'hsl(227, 48%, 16%)',
+		// iconPath: require('../../assets/images/icon-scissors.png'),
+	},
 };
 
 export const pickStyles = {

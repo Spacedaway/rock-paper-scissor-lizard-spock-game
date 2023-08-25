@@ -4,10 +4,11 @@ import { useRoute } from '@react-navigation/native';
 
 const Option = ({
 	size,
-	icon,
 	optionStyle,
 	option,
 	basicStyle,
+	gameMode,
+	icon = null,
 	pickStyle = null,
 	onPressNavigate = null,
 }) => {
@@ -17,6 +18,7 @@ const Option = ({
 		if (onPressNavigate) {
 			onPressNavigate({
 				option,
+				gameMode,
 				routeName: route.name,
 			});
 		}

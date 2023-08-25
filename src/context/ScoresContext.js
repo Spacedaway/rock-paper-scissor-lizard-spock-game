@@ -11,15 +11,23 @@ const scoresReducer = (state, action) => {
 				},
 			};
 		case 'draw':
-			return state;
+			return {
+				...state,
+				[action.payload]: {
+					...state[action.payload],
+					draw: state[action.payload].draw + 1,
+				},
+			};
 		case 'loss':
 			return {
 				...state,
 				[action.payload]: {
 					...state[action.payload],
-					win: state[action.payload].win - 1,
+					loss: state[action.payload].loss + 1,
 				},
 			};
+		case 'reset':
+			return { ...state, [action.payload]: { win: 0, draw: 0, loss: 0 } };
 		default:
 			return state;
 	}
@@ -43,11 +51,17 @@ const loss = (dispatch) => {
 	};
 };
 
+const reset = (dispatch) => {
+	return (gameMode) => {
+		dispatch({ type: 'reset', payload: gameMode });
+	};
+};
+
 export const { Provider, Context } = createDataContext(
 	scoresReducer,
-	{ win, loss, draw },
+	{ win, loss, draw, reset },
 	{
-		Basic: { win: 0, loss: 1, draw: 0 },
-		Advance: { win: 0, loss: 2, draw: 0 },
+		Basic: { win: 0, loss: 0, draw: 0 },
+		Advance: { win: 0, loss: 0, draw: 0 },
 	}
 );

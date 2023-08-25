@@ -6,7 +6,6 @@ import { Context as ScoresContext } from '../context/ScoresContext';
 const ScoreBoard = ({ src, size, gameMode }) => {
 	const { state } = useContext(ScoresContext);
 	const scores = ({ win, draw, loss } = state[gameMode]);
-	// const { win , draw, loss} = scores
 
 	return (
 		<View style={{ flexDirection: 'row' }}>

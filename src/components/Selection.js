@@ -15,7 +15,7 @@ const Selection = ({ size, gameMode }) => {
 		sliceValue = 3;
 		source = require('../../assets/images/bg-triangle.png');
 	} else {
-		sliceValue = Object.keys(optionStyles).length;
+		sliceValue = 5;
 		source = require('../../assets/images/bg-pentagon.png');
 	}
 
@@ -35,6 +35,7 @@ const Selection = ({ size, gameMode }) => {
 						}
 						option={key}
 						onPressNavigate={onPressNavigate}
+						gameMode={gameMode}
 					/>
 				))}
 		</View>

@@ -18,15 +18,15 @@ export default Outcomes = {
 		spock: 'win',
 	},
 	lizard: {
-		scissors: 'win',
-		rock: 'win',
+		scissors: 'lose',
+		rock: 'lose',
 		paper: 'win',
-		spock: 'lose',
+		spock: 'win',
 	},
 	rock: {
 		spock: 'lose',
 		paper: 'lose',
-		lizard: 'lose',
+		lizard: 'win',
 		scissors: 'win',
 	},
 };
