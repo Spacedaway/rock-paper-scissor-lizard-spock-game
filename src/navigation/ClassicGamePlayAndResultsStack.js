@@ -7,7 +7,13 @@ const Stack = createNativeStackNavigator();
 
 const ClassicGamePlayAndResultsStack = () => {
 	return (
-		<Stack.Navigator screenOptions={{ headerShown: false }}>
+		<Stack.Navigator
+			animationEnabled={false}
+			screenOptions={{
+				headerShown: false,
+				animation: 'slide_from_right',
+			}}
+		>
 			<Stack.Screen name='Classic' component={RockPaperScissors} />
 			<Stack.Screen name='GamePlay' component={GamePlay} />
 		</Stack.Navigator>

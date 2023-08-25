@@ -9,7 +9,7 @@ const ClassicVsAdjustedStack = () => {
 	return (
 		<Stack.Navigator
 			initialRouteName='AdvanceGame'
-			screenOptions={{ headerShown: false }}
+			screenOptions={{ headerShown: false, animation: 'slide_from_left' }}
 		>
 			<Stack.Screen
 				name='AdvanceGame'

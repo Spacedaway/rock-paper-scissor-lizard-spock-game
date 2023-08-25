@@ -8,7 +8,11 @@ const Stack = createNativeStackNavigator();
 const AdvanceRulesScreenStack = () => {
 	return (
 		<Stack.Navigator
-			screenOptions={{ headerShown: false }}
+			animationEnabled={false}
+			screenOptions={{
+				headerShown: false,
+				animation: 'fade_from_bottom',
+			}}
 			initialRouteName='AdvanceGamePlay'
 		>
 			<Stack.Screen name='AdvancedRules' component={Rules} />
