@@ -1,30 +1,21 @@
-import { StyleSheet, Text, View } from 'react-native';
 import React from 'react';
+import { StyleSheet, Text, View } from 'react-native';
 
-const MyAppText = ({
-	children,
-	size = 20,
-	align = 'center',
-	textColour = 'white',
-	margin = null,
-}) => {
+import { fontWeight } from '../utils/Styles';
+
+const MyAppText = ({ styles = {}, ...props }) => {
 	return (
 		<View>
-			<Text
-				style={{
-					fontSize: size,
-					color: textColour,
-					textAlign: align,
-					fontFamily: 'BarlowSemiCondensed-Regular',
-					marginTop: margin,
-				}}
-			>
-				{children}
-			</Text>
+			<Text style={[style.fontFamily, styles]}>{props.children}</Text>
 		</View>
 	);
 };
 
 export default MyAppText;
 
-const styles = StyleSheet.create({});
+const style = StyleSheet.create({
+	fontFamily: {
+		fontFamily: 'BarlowSemiCondensed-Regular',
+		fontWeight: fontWeight.default,
+	},
+});

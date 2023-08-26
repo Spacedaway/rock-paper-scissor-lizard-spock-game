@@ -1,9 +1,10 @@
-import { StyleSheet, View } from 'react-native';
 import React from 'react';
+import { StyleSheet, View } from 'react-native';
+import { useNavigation } from '@react-navigation/native';
+
 import BackgroundImage from './BackgroundImage';
 import Option from './Option';
-import { optionStyles, basicOptions } from '../../assets/styles/styles';
-import { useNavigation } from '@react-navigation/native';
+import { optionStyles, basicOptions } from '../utils/Styles';
 
 const Selection = ({ size, gameMode }) => {
 	const navigation = useNavigation();

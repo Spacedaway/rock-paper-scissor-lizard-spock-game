@@ -1,23 +1,33 @@
-import { StyleSheet, View } from 'react-native';
 import React from 'react';
+import { StyleSheet, View } from 'react-native';
+
 import Button from './Button';
 import useCustomNavigation from '../hooks/useCustomNavigation';
-import { useRoute } from '@react-navigation/native';
+import { colours, fontSizes, spacing } from '../utils/Styles';
 
 const ControlPanel = ({ modeTitle }) => {
 	const [handleRulesNavigation, handleGameModeNavigation] =
 		useCustomNavigation();
 
 	return (
-		<View style={{ gap: 10, marginBottom: 20 }}>
-			<View style={{ flexDirection: 'row', gap: 10 }}>
-				<Button title='RULES' onPressNavigate={handleRulesNavigation} />
-				<Button title='RESET' onPressNavigate={handleRulesNavigation} />
+		<View style={{ gap: spacing.sm, marginBottom: spacing.lg }}>
+			<View style={{ flexDirection: 'row', gap: spacing.sm }}>
+				<Button
+					title='RULES'
+					style={styles.buttonText}
+					onPressNavigate={handleRulesNavigation}
+				/>
+				<Button
+					title='RESET'
+					style={styles.buttonText}
+					onPressNavigate={handleRulesNavigation}
+				/>
 			</View>
 			<Button
 				title={modeTitle}
-				bgColour='hsl(217, 16%, 45%)'
-				brColour='white'
+				bgClr={colours.lightGray}
+				brClr={colours.white}
+				style={styles.buttonText}
 				onPressNavigate={handleGameModeNavigation}
 			/>
 		</View>
@@ -26,4 +36,10 @@ const ControlPanel = ({ modeTitle }) => {
 
 export default ControlPanel;
 
-const styles = StyleSheet.create({});
+const styles = StyleSheet.create({
+	buttonText: {
+		fontSize: fontSizes.md,
+		color: colours.white,
+		textAlign: 'center',
+	},
+});

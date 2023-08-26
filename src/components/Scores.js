@@ -1,21 +1,14 @@
-import { StyleSheet, View } from 'react-native';
 import React from 'react';
-import MyAppText from './MyAppText';
+import { StyleSheet, View } from 'react-native';
 
-const Scores = ({
-	bgClr = 'hsl(237, 49%, 15%)',
-	txtclr = 'white',
-	title,
-	value,
-}) => {
+import MyAppText from './MyAppText';
+import { spacing } from '../utils/Styles';
+
+const Scores = ({ titleStyle, scoreStyle, bgclr, value, title }) => {
 	return (
-		<View style={[styles.container, { backgroundColor: bgClr }]}>
-			<MyAppText textColour={txtclr} size={15}>
-				{title}
-			</MyAppText>
-			<MyAppText textColour="color: 'hsl(229, 25%, 31%)'" size={30}>
-				{value}
-			</MyAppText>
+		<View style={[{ backgroundColor: bgclr }, styles.container]}>
+			<MyAppText styles={titleStyle}>{title}</MyAppText>
+			<MyAppText styles={scoreStyle}>{value}</MyAppText>
 		</View>
 	);
 };
@@ -24,8 +17,8 @@ export default Scores;
 
 const styles = StyleSheet.create({
 	container: {
-		borderRadius: 8,
-		width: 80,
-		paddingTop: 5,
+		borderRadius: spacing.sm,
+		width: spacing.xxxl,
+		paddingTop: spacing.sm,
 	},
 });

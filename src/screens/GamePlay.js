@@ -4,7 +4,6 @@ import { SafeAreaView } from 'react-native-safe-area-context';
 import { useNavigation } from '@react-navigation/native';
 import { useRoute } from '@react-navigation/native';
 
-import { pickStyles } from '../../assets/styles/styles';
 import ScoreBoard from '../components/ScoreBoard';
 import UserHouseOptions from '../components/UserHouseOptions';
 import Result from '../components/Result';
@@ -12,6 +11,7 @@ import Button from '../components/Button';
 import useCustomNavigation from '../hooks/useCustomNavigation';
 import useScreenWidth from '../hooks/useScreenWidth';
 import useGamePlayHandler from '../hooks/useGameplayHandler';
+import { colours, fontSizes, pickStyles } from '../utils/Styles';
 
 const GamePlay = () => {
 	const [screenWidth] = useScreenWidth();
@@ -25,6 +25,7 @@ const GamePlay = () => {
 	);
 	const [showHouseChoice, setShowHouseChoice] = useState(false);
 	const [showResult, setShowResult] = useState(false);
+
 	useEffect(() => {
 		const timer = setTimeout(() => {
 			setShowHouseChoice(true);
@@ -65,8 +66,8 @@ const GamePlay = () => {
 			<View style={styles.rules}>
 				<Button
 					title='RULES'
-					brColour='white'
-					txtsz={20}
+					brClr={colours.white}
+					style={{ color: colours.white, fontSize: fontSizes.md }}
 					onPressNavigate={handleRulesNavigation}
 				/>
 			</View>

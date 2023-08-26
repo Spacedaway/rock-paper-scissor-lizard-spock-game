@@ -1,7 +1,9 @@
-import { StyleSheet, View, Image } from 'react-native';
 import React, { useContext } from 'react';
+import { StyleSheet, View, Image } from 'react-native';
+
 import Scores from './Scores';
 import { Context as ScoresContext } from '../context/ScoresContext';
+import { colours, fontSizes, fontWeight, spacing } from '../utils/Styles';
 
 const ScoreBoard = ({ src, size, gameMode }) => {
 	const { state } = useContext(ScoresContext);
@@ -19,11 +21,32 @@ const ScoreBoard = ({ src, size, gameMode }) => {
 					}}
 				/>
 				<View style={styles.scoreboard}>
-					<Scores title='LOSE' value={loss} />
-					<Scores title='DRAW' value={draw} />
 					<Scores
-						txtclr="color: 'hsl(229, 64%, 46%)'"
-						bgClr='white'
+						bgclr={colours.deepBlue}
+						scoreStyle={styles.score}
+						titleStyle={styles.title}
+						title='LOSE'
+						value={loss}
+					/>
+					<Scores
+						bgclr={colours.deepBlue}
+						scoreStyle={styles.score}
+						titleStyle={styles.title}
+						title='DRAW'
+						value={draw}
+					/>
+					<Scores
+						bgclr='white'
+						scoreStyle={{
+							color: colours.DeepScoreText,
+							fontSize: fontSizes.xl,
+							textAlign: 'center',
+						}}
+						titleStyle={{
+							textAlign: 'center',
+							color: colours.lightScoreText,
+							fontWeight: fontWeight.bold,
+						}}
 						title='SCORE'
 						value={win}
 					/>
@@ -40,15 +63,25 @@ const styles = StyleSheet.create({
 		flex: 1,
 		flexDirection: 'row',
 		justifyContent: 'space-between',
-		borderColor: 'hsl(217, 16%, 45%)',
+		borderColor: colours.lightGray,
 		borderWidth: 2,
-		borderRadius: 8,
-		paddingHorizontal: 15,
-		paddingVertical: 10,
-		marginVertical: 20,
+		borderRadius: spacing.sm,
+		paddingHorizontal: spacing.md,
+		paddingVertical: spacing.sm,
+		marginVertical: spacing.lg,
 	},
 	scoreboard: {
 		flexDirection: 'row',
-		gap: 10,
+		gap: spacing.sm,
+	},
+	title: {
+		color: colours.white,
+		textAlign: 'center',
+		fontWeight: fontWeight.bold,
+	},
+	score: {
+		textAlign: 'center',
+		fontSize: fontSizes.xl,
+		color: colours.DeepScoreText,
 	},
 });

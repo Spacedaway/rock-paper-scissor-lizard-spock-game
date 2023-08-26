@@ -1,3 +1,36 @@
+export const fontSizes = {
+	sm: 8,
+	md: 16,
+	lg: 24,
+	xl: 32,
+	xxl: 40,
+	xxxl: 80,
+};
+
+export const spacing = {
+	sm: 8,
+	md: 16,
+	lg: 24,
+	xl: 32,
+	xxl: 40,
+	xxxl: 80,
+};
+
+export const fontWeight = {
+	default: 600,
+	bold: 700,
+};
+
+export const colours = {
+	background: 'hsl(214, 47%, 23%)',
+	DeepScoreText: 'hsl(229, 25%, 31%)',
+	lightScoreText: 'hsl(229, 64%, 46%)',
+	lightGray: 'hsl(217, 16%, 45%)',
+	deepBlue: 'hsl(237, 49%, 15%)',
+	lighterBlue: 'hsl(229, 25%, 31%)',
+	white: 'hsl(0, 0%, 100%)',
+};
+
 export const optionStyles = {
 	scissors: {
 		top: 75,
@@ -37,7 +70,6 @@ export const optionStyles = {
 	default: {
 		borderColor: 'hsl(227, 48%, 16%)',
 		backgroundColor: 'hsl(227, 48%, 16%)',
-		// iconPath: require('../../assets/images/icon-scissors.png'),
 	},
 };
 

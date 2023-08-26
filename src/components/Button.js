@@ -1,26 +1,25 @@
-import { StyleSheet, View, TouchableOpacity } from 'react-native';
 import React from 'react';
+import { StyleSheet, View, TouchableOpacity } from 'react-native';
+
 import MyAppText from './MyAppText';
+import { colours, spacing } from '../utils/Styles';
 
 const Button = ({
-	brColour = 'hsl(217, 16%, 45%)',
-	txtclr = 'white',
-	bgColour = null,
-	txtsz = null,
 	title,
 	onPressNavigate,
+	style = {},
+	bgClr = null,
+	brClr = colours.lightGray,
 }) => {
 	return (
 		<View
 			style={[
-				{ backgroundColor: bgColour, borderColor: brColour },
+				{ backgroundColor: bgClr, borderColor: brClr },
 				styles.container,
 			]}
 		>
 			<TouchableOpacity onPress={onPressNavigate}>
-				<MyAppText size={txtsz} textColour={txtclr}>
-					{title}
-				</MyAppText>
+				<MyAppText styles={style}>{title}</MyAppText>
 			</TouchableOpacity>
 		</View>
 	);
@@ -31,8 +30,8 @@ export default Button;
 const styles = StyleSheet.create({
 	container: {
 		borderWidth: 2,
-		borderRadius: 8,
-		paddingHorizontal: 30,
-		paddingVertical: 10,
+		borderRadius: spacing.sm,
+		paddingHorizontal: spacing.xl,
+		paddingVertical: spacing.sm,
 	},
 });

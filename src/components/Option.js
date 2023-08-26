@@ -1,6 +1,8 @@
-import { Image, StyleSheet, TouchableOpacity } from 'react-native';
 import React from 'react';
+import { Image, StyleSheet, TouchableOpacity } from 'react-native';
 import { useRoute } from '@react-navigation/native';
+
+import { spacing } from '../utils/Styles';
 
 const Option = ({
 	size,
@@ -52,7 +54,7 @@ const styles = StyleSheet.create({
 		backgroundColor: 'white',
 		justifyContent: 'center',
 		alignItems: 'center',
-		elevation: 6,
-		borderWidth: 16,
+		elevation: spacing.sm,
+		borderWidth: spacing.md,
 	},
 });

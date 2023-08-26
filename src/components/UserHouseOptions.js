@@ -1,9 +1,16 @@
-import { StyleSheet, Text, View } from 'react-native';
 import React from 'react';
+import { StyleSheet, View } from 'react-native';
+
 import Option from './Option';
 import useScreenWidth from '../hooks/useScreenWidth';
-import { optionStyles } from '../../assets/styles/styles';
 import MyAppText from './MyAppText';
+import {
+	colours,
+	fontSizes,
+	fontWeight,
+	optionStyles,
+	spacing,
+} from '../utils/Styles';
 
 const UserHouseOptions = ({ option, reset, title }) => {
 	const [screenWidth] = useScreenWidth();
@@ -16,7 +23,7 @@ const UserHouseOptions = ({ option, reset, title }) => {
 				optionStyle={optionStyles[option]}
 				pickStyle={reset}
 			/>
-			<MyAppText>{title}</MyAppText>
+			<MyAppText styles={styles.option}>{title}</MyAppText>
 		</View>
 	);
 };
@@ -26,6 +33,11 @@ export default UserHouseOptions;
 const styles = StyleSheet.create({
 	container: {
 		alignItems: 'center',
-		gap: 20,
+		gap: spacing.lg,
+	},
+	option: {
+		color: colours.white,
+		fontWeight: fontWeight.bold,
+		fontSize: fontSizes.md,
 	},
 });
