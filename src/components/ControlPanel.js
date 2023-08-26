@@ -1,13 +1,15 @@
-import React from 'react';
+import React, { useContext } from 'react';
 import { StyleSheet, View } from 'react-native';
 
 import Button from './Button';
 import useCustomNavigation from '../hooks/useCustomNavigation';
+import { Context as ScoresContext } from '../context/ScoresContext';
 import { colours, fontSizes, spacing } from '../utils/Styles';
 
-const ControlPanel = ({ modeTitle }) => {
+const ControlPanel = ({ modeTitle, gameMode }) => {
 	const [handleRulesNavigation, handleGameModeNavigation] =
 		useCustomNavigation();
+	const { reset } = useContext(ScoresContext);
 
 	return (
 		<View style={{ gap: spacing.sm, marginBottom: spacing.lg }}>
@@ -20,7 +22,7 @@ const ControlPanel = ({ modeTitle }) => {
 				<Button
 					title='RESET'
 					style={styles.buttonText}
-					onPressNavigate={handleRulesNavigation}
+					onPressNavigate={() => reset(gameMode)}
 				/>
 			</View>
 			<Button

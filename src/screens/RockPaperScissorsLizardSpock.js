@@ -19,7 +19,7 @@ const RockPaperScissorsLizardSpock = () => {
 				gameMode='Advance'
 			/>
 			<Selection size={screenWidth} gameMode='Advance' />
-			<ControlPanel modeTitle='BASIC MODE' />
+			<ControlPanel modeTitle='BASIC MODE' gameMode='Advance' />
 		</SafeAreaView>
 	);
 };

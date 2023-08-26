@@ -19,7 +19,7 @@ const RockPaperScissors = () => {
 				gameMode='Basic'
 			/>
 			<Selection size={screenWidth} gameMode='Basic' />
-			<ControlPanel modeTitle='ADVANCE MODE' />
+			<ControlPanel modeTitle='ADVANCE MODE' gameMode='Basic' />
 		</SafeAreaView>
 	);
 };
