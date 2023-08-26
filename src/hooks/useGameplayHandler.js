@@ -1,5 +1,6 @@
+import { useContext, useRef, useState } from 'react';
+
 import { Context as ScoresContext } from '../context/ScoresContext';
-import React, { useContext, useRef, useState } from 'react';
 import Outcomes from '../utils/Outcomes';
 
 const useGamePlayHandler = (userChoice, gameMode) => {
