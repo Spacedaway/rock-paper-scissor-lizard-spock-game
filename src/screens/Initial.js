@@ -1,22 +1,60 @@
-import React from 'react';
+import AsyncStorage from '@react-native-async-storage/async-storage';
+import React, { useContext, useEffect, useState } from 'react';
 import { SafeAreaView } from 'react-native-safe-area-context';
-import { StyleSheet } from 'react-native';
+import { ActivityIndicator, StyleSheet } from 'react-native';
 
 import MyAppText from '../components/MyAppText';
 import Button from '../components/Button';
+import { Context as AuthContext } from '../context/AuthContext';
 import { colours, fontSizes, spacing } from '../utils/Styles';
 
-const Initial = ({ navigation }) => {
+const Initial = () => {
+	const {
+		signUp,
+		localSignin,
+		state: { loading, errorMessage },
+	} = useContext(AuthContext);
+	const [isSignedIn, setIsSignedIn] = useState(false);
+
+	useEffect(() => {
+		const tryLocalSignin = async () => {
+			const token = await AsyncStorage.getItem('token');
+			if (token) {
+				localSignin(token);
+			}
+			setIsSignedIn(true);
+		};
+		tryLocalSignin();
+	}, []);
+
+	if (!isSignedIn) {
+		return <ActivityIndicator size='large' style={styles.loading} />;
+	}
+
 	return (
 		<SafeAreaView style={styles.container}>
 			<MyAppText styles={styles.text}>
 				Welcome to Rock Paper Scissor Spock Lizard Game
 			</MyAppText>
+			{loading ? (
+				<ActivityIndicator size='large' style={{ marginBottom: 5 }} />
+			) : null}
 			<Button
 				title="LET'S PLAY!"
 				style={styles.button}
-				onPressNavigate={() => navigation.navigate('ClassicOrAdvance')}
+				onPressNavigate={signUp}
 			/>
+			{errorMessage ? (
+				<MyAppText
+					styles={{
+						fontSize: fontSizes.md,
+						color: 'red',
+						marginTop: spacing.md,
+					}}
+				>
+					{errorMessage}
+				</MyAppText>
+			) : null}
 		</SafeAreaView>
 	);
 };
@@ -40,5 +78,11 @@ const styles = StyleSheet.create({
 		color: colours.white,
 		fontSize: fontSizes.lg,
 		textAlign: 'center',
+	},
+	loading: {
+		flex: 1,
+		justifyContent: 'center',
+		alignItems: 'center',
+		backgroundColor: colours.background,
 	},
 });
