@@ -1,7 +1,6 @@
 import React from 'react';
 import { StyleSheet } from 'react-native';
 import { SafeAreaView } from 'react-native-safe-area-context';
-import AsyncStorage from '@react-native-async-storage/async-storage';
 
 import ScoreBoard from '../components/ScoreBoard';
 import Selection from '../components/Selection';
@@ -11,18 +10,6 @@ import { colours } from '../utils/Styles';
 
 const RockPaperScissorsLizardSpock = () => {
 	const [screenWidth] = useScreenWidth();
-
-	clearAll = async () => {
-		try {
-			// await AsyncStorage.clear();
-			const something = await AsyncStorage.getItem('token');
-			console.log(something);
-		} catch (e) {
-			console.error(e);
-		}
-		// console.log('Done.');
-	};
-	clearAll();
 
 	return (
 		<SafeAreaView style={styles.container}>

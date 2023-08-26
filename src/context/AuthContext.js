@@ -3,7 +3,7 @@ import AsyncStorage from '@react-native-async-storage/async-storage';
 import createDataContext from './createDataContext';
 import { navigate } from '../services/navigationRef';
 import { db } from '../services/firebaseConfig';
-import { collection, getDocs, addDoc } from 'firebase/firestore';
+import { collection, addDoc } from 'firebase/firestore';
 
 const playersCollectionRef = collection(db, 'players');
 const authReducer = (state, action) => {
@@ -31,12 +31,8 @@ const signUp = (dispatch) => {
 		try {
 			dispatch({ type: 'loading', payload: true });
 			const newPlayerRef = await addDoc(playersCollectionRef, {
-				advanceDraw: 0,
-				advanceLoss: 0,
-				advanceWin: 0,
-				basicDraw: 0,
-				basicLoss: 0,
-				basicWin: 0,
+				Basic: { win: 0, loss: 0, draw: 0 },
+				Advance: { win: 0, loss: 0, draw: 0 },
 			});
 			await AsyncStorage.setItem('token', newPlayerRef.id);
 			dispatch({ type: 'signin', payload: newPlayerRef.id });

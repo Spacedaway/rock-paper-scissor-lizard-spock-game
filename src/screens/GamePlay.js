@@ -28,8 +28,8 @@ const GamePlay = () => {
 
 	useEffect(() => {
 		const timer = setTimeout(() => {
-			setShowHouseChoice(true);
 			getOutcome();
+			setShowHouseChoice(true);
 			setShowResult(true);
 		}, 1000);
 		return () => clearTimeout(timer);

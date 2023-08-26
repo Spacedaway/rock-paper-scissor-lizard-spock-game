@@ -6,9 +6,11 @@ import { ActivityIndicator, StyleSheet } from 'react-native';
 import MyAppText from '../components/MyAppText';
 import Button from '../components/Button';
 import { Context as AuthContext } from '../context/AuthContext';
+import { Context as ScoresContext } from '../context/ScoresContext';
 import { colours, fontSizes, spacing } from '../utils/Styles';
 
 const Initial = () => {
+	const { getScores } = useContext(ScoresContext);
 	const {
 		signUp,
 		localSignin,
@@ -20,6 +22,7 @@ const Initial = () => {
 		const tryLocalSignin = async () => {
 			const token = await AsyncStorage.getItem('token');
 			if (token) {
+				await getScores(token);
 				localSignin(token);
 			}
 			setIsSignedIn(true);

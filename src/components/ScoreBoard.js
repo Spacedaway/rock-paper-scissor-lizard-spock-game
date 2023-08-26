@@ -1,13 +1,22 @@
-import React, { useContext } from 'react';
+import React, { useContext, useEffect } from 'react';
 import { StyleSheet, View, Image } from 'react-native';
 
 import Scores from './Scores';
+import updateTotalScores from '../utils/updateTotalScores';
+import { Context as AuthContext } from '../context/AuthContext';
 import { Context as ScoresContext } from '../context/ScoresContext';
 import { colours, fontSizes, fontWeight, spacing } from '../utils/Styles';
 
 const ScoreBoard = ({ src, size, gameMode }) => {
+	const {
+		state: { token },
+	} = useContext(AuthContext);
 	const { state } = useContext(ScoresContext);
 	const scores = ({ win, draw, loss } = state[gameMode]);
+
+	useEffect(() => {
+		updateTotalScores(token, state);
+	}, [state]);
 
 	return (
 		<View style={{ flexDirection: 'row' }}>

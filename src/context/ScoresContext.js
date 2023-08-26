@@ -1,7 +1,13 @@
-import createDataContext from './createDataContext';
+import { collection, getDoc, doc } from 'firebase/firestore';
 
+import createDataContext from './createDataContext';
+import { db } from '../services/firebaseConfig';
+
+const playersCollectionRef = collection(db, 'players');
 const scoresReducer = (state, action) => {
 	switch (action.type) {
+		case 'get_Scores':
+			return action.payload;
 		case 'win':
 			return {
 				...state,
@@ -34,7 +40,7 @@ const scoresReducer = (state, action) => {
 };
 
 const win = (dispatch) => {
-	return (gameMode) => {
+	return (gameMode, id) => {
 		dispatch({ type: 'win', payload: gameMode });
 	};
 };
@@ -57,9 +63,21 @@ const reset = (dispatch) => {
 	};
 };
 
+const getScores = (dispatch) => {
+	return async (id) => {
+		try {
+			const playerDocRef = doc(playersCollectionRef, id);
+			const playerDocSnapshot = await getDoc(playerDocRef);
+			dispatch({ type: 'get_Scores', payload: playerDocSnapshot.data() });
+		} catch (error) {
+			console.error(error);
+		}
+	};
+};
+
 export const { Provider, Context } = createDataContext(
 	scoresReducer,
-	{ win, loss, draw, reset },
+	{ win, loss, draw, reset, getScores },
 	{
 		Basic: { win: 0, loss: 0, draw: 0 },
 		Advance: { win: 0, loss: 0, draw: 0 },
