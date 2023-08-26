@@ -5,15 +5,17 @@ import AdvanceRulesScreenStack from './AdvanceRulesScreenStack';
 import ClassicGamePlayAndResultsStack from './ClassicGamePlayAndResultsStack';
 import ClassicRulesScreenStack from './ClassicRulesScreenStack';
 import ClassicVsAdjustedStack from './ClassicVsAdjustedStack';
+import Initial from '../screens/Initial';
 
 const Stack = createNativeStackNavigator();
 
 const MainStackNavigator = () => {
 	return (
 		<Stack.Navigator
-			initialRouteName='ClassicOrAdvance'
+			initialRouteName='Initial'
 			screenOptions={{ headerShown: false }}
 		>
+			<Stack.Screen name='Initial' component={Initial} />
 			<Stack.Screen
 				name='ClassicOrAdvance'
 				component={ClassicVsAdjustedStack}
