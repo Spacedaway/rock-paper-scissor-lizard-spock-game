@@ -2,6 +2,8 @@ import AsyncStorage from '@react-native-async-storage/async-storage';
 import React, { useContext, useEffect, useState } from 'react';
 import { SafeAreaView } from 'react-native-safe-area-context';
 import { ActivityIndicator, StyleSheet } from 'react-native';
+import { db } from '../services/firebaseConfig';
+import { getDoc, doc, collection } from 'firebase/firestore';
 
 import MyAppText from '../components/MyAppText';
 import Button from '../components/Button';
@@ -17,13 +19,25 @@ const Initial = () => {
 		state: { loading, errorMessage },
 	} = useContext(AuthContext);
 	const [isSignedIn, setIsSignedIn] = useState(false);
+	const playersCollectionRef = collection(db, 'players');
 
 	useEffect(() => {
 		const tryLocalSignin = async () => {
 			const token = await AsyncStorage.getItem('token');
 			if (token) {
-				await getScores(token);
-				localSignin(token);
+				try {
+					// Check if the token exists in the Firestore database
+					const playerDoc = await getDoc(doc(playersCollectionRef, token));
+					if (playerDoc.exists()) {
+						await getScores(token);
+						localSignin(token);
+					} else {
+						setIsSignedIn(true);
+						return;
+					}
+				} catch (error) {
+					console.error('Error checking player existence:', error);
+				}
 			}
 			setIsSignedIn(true);
 		};

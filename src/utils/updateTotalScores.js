@@ -8,10 +8,7 @@ const updateTotalScores = async (id, scores) => {
 
 	try {
 		await setDoc(playerDocRef, scores);
-		console.log('Player data updated successfully.');
-	} catch (error) {
-		console.error('Error updating player data:', error);
-	}
+	} catch (error) {}
 };
 
 export default updateTotalScores;

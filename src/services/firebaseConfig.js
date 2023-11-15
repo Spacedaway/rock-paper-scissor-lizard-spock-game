@@ -1,5 +1,5 @@
 import { initializeApp } from 'firebase/app';
-import { getFirestore } from '@firebase/firestore';
+import { getFirestore } from 'firebase/firestore';
 
 import {
 	API_KEY,
@@ -14,7 +14,6 @@ import {
 const firebaseConfig = {
 	apiKey: API_KEY,
 	authDomain: AUTH_DOMAIN,
-	databaseURL: `https://${PROJECT_ID}.firebaseio.com`,
 	projectId: PROJECT_ID,
 	storageBucket: STORAGE_BUCKET,
 	messagingSenderId: MESSAGING_SENDERID,
