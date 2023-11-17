@@ -1,5 +1,5 @@
 import React, { useEffect, useState } from 'react';
-import { StyleSheet, View } from 'react-native';
+import { StyleSheet, View, StatusBar } from 'react-native';
 import { SafeAreaView } from 'react-native-safe-area-context';
 import { useNavigation } from '@react-navigation/native';
 import { useRoute } from '@react-navigation/native';
@@ -41,11 +41,8 @@ const GamePlay = () => {
 
 	return (
 		<SafeAreaView style={styles.container}>
-			<ScoreBoard
-				gameMode={gameMode}
-				src={source}
-				size={screenWidth * 0.2}
-			/>
+			<StatusBar backgroundColor={colours.background} />
+			<ScoreBoard gameMode={gameMode} src={source} size={screenWidth * 0.2} />
 			<View style={styles.picks}>
 				<UserHouseOptions
 					option={option}

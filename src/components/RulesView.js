@@ -1,5 +1,5 @@
 import React from 'react';
-import { Image, StyleSheet, TouchableOpacity } from 'react-native';
+import { Image, StyleSheet, TouchableOpacity, StatusBar } from 'react-native';
 import { SafeAreaView } from 'react-native-safe-area-context';
 import { useNavigation } from '@react-navigation/native';
 import { useRoute } from '@react-navigation/native';
@@ -24,6 +24,7 @@ const RulesView = ({ src }) => {
 
 	return (
 		<SafeAreaView style={styles.container}>
+			<StatusBar backgroundColor={colours.white} />
 			<MyAppText styles={styles.rulesStyle}>RULES</MyAppText>
 			<Image source={src} width={width} height={width} />
 			<TouchableOpacity onPress={navigateBack}>
@@ -43,6 +44,7 @@ const styles = StyleSheet.create({
 		flex: 1,
 		alignItems: 'center',
 		justifyContent: 'space-around',
+		backgroundColor: colours.white,
 	},
 	close: {
 		width: spacing.xl,

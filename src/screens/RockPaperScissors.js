@@ -1,5 +1,5 @@
 import React from 'react';
-import { StyleSheet } from 'react-native';
+import { StyleSheet, StatusBar } from 'react-native';
 import { SafeAreaView } from 'react-native-safe-area-context';
 
 import ScoreBoard from '../components/ScoreBoard';
@@ -13,6 +13,8 @@ const RockPaperScissors = () => {
 
 	return (
 		<SafeAreaView style={styles.container}>
+			<StatusBar backgroundColor={colours.background} />
+
 			<ScoreBoard
 				src={require('../../assets/images/logo.png')}
 				size={screenWidth * 0.2}

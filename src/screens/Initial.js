@@ -1,7 +1,7 @@
 import AsyncStorage from '@react-native-async-storage/async-storage';
 import React, { useContext, useEffect, useState } from 'react';
 import { SafeAreaView } from 'react-native-safe-area-context';
-import { ActivityIndicator, StyleSheet } from 'react-native';
+import { ActivityIndicator, StyleSheet, StatusBar } from 'react-native';
 import { db } from '../services/firebaseConfig';
 import { getDoc, doc, collection } from 'firebase/firestore';
 
@@ -50,6 +50,7 @@ const Initial = () => {
 
 	return (
 		<SafeAreaView style={styles.container}>
+			<StatusBar backgroundColor={colours.background} />
 			<MyAppText styles={styles.text}>
 				Welcome to Rock Paper Scissor Spock Lizard Game
 			</MyAppText>
